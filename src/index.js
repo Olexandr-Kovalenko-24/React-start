@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import OurComponents from './OurComponent';
 
+const component = React.createElement(Section);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
-// React.createElement(OurComponents, {today: 'tuesday'})
-<div>
-<OurComponents today="monday"/>
-<OurComponents today="tuesday"/>
-<OurComponents today="wednesday"/>
-</div>
+component
 );
 
+function Section (props){
+    const username = 'Alex';
+    const today = new Date();
+
+    return (
+        <section>
+            <div>
+                <h1>Hello, {username}</h1>
+            </div>
+            <article>
+                <p>{today.toDateString()}</p>
+                <button>Text</button>
+            </article>
+        </section>
+    )
+}
