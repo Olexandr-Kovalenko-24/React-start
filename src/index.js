@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-const component = React.createElement(Section);
+// const component = React.createElement(Section);
+const component = <Section />;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -9,18 +10,24 @@ component
 );
 
 function Section (props){
-    const username = 'Alex';
-    const today = new Date();
+
+    const userObj = {
+        "id": 5,
+        "name": "Alex",
+        "description": ";oiu;oxzkxfaklwejlkwej",
+        "profilePicture": "https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+    }
+
+    const clicker = () => {
+        console.log('hello')
+    }
 
     return (
-        <section>
-            <div>
-                <h1>Hello, {username}</h1>
-            </div>
-            <article>
-                <p>{today.toDateString()}</p>
+        <section onClick={clicker}>
+                <img src={userObj.profilePicture} />
+                <h2>{userObj.name}</h2>
+                <p>{userObj.description}</p>
                 <button>Text</button>
-            </article>
         </section>
     )
 }
