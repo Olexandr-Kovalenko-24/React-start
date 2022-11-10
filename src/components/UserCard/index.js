@@ -1,15 +1,20 @@
 import React from "react";
+import './style.css';
 
 class Card extends React.Component {
-
+    constructor(props) {
+        super(props)
+    }
     render() {
         return (
-            <section onClick={clicker}>
-                <img src={userObj.profilePicture} />
-                <h2>{userObj.name}</h2>
-                <p>{userObj.description}</p>
-                <button>Text</button>
+            <section className="card-wrapper">
+                <img src={this.props.src} className="avatar" />
+                <h2 className="userName">{this.props.userName}</h2>
+                <p className="discription">{this.props.description}</p>
+                <button className="connectButton">Connect</button>
             </section>
         )
     }
 }
+
+export default Card;
