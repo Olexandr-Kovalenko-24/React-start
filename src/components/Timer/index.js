@@ -38,6 +38,7 @@ class Timer extends Component {
 
     clear = () => {
         clearInterval(this.intervalId);
+        this.intervalId = null;
         this.setState({
             time: new Date(0,0,0,0,0,0)
         })
