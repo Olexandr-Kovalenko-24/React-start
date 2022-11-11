@@ -1,12 +1,12 @@
 import React from "react";
-import UserDashboard from "./components/UserDashbord";
-
+// import UserDashboard from "./components/UserDashbord";
+import Tree from "./components/Tree"
 
 class App extends React.Component {
 
     render() {
         return (
-            <UserDashboard />
+            <Tree />
         )
     }
 }

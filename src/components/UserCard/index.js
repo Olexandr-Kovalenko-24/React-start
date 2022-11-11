@@ -8,7 +8,7 @@ class Card extends React.Component {
         return (
             <section className="card-wrapper">
                 <div className="image-wrapper">
-                <img src={profilePicture} alt={this.props.alt} className="avatar" />
+                <img src={profilePicture} className="avatar" />
                 </div>
                 <h2 className="userName">{name}</h2>
                 <p className="discription">{description}</p>
