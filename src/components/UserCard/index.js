@@ -2,20 +2,16 @@ import React from "react";
 import './style.css';
 
 class Card extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    imageCreate(props){
-
-    }
 
     render() {
+        const {user: {id, name, description, profilePicture}} = this.props;
         return (
             <section className="card-wrapper">
-                <img src={this.props.src} alt={this.props.alt} className="avatar" />
-                <h2 className="userName">{this.props.userName}</h2>
-                <p className="discription">{this.props.description}</p>
+                <div className="image-wrapper">
+                <img src={profilePicture} alt={this.props.alt} className="avatar" />
+                </div>
+                <h2 className="userName">{name}</h2>
+                <p className="discription">{description}</p>
                 <button className="connectButton">Connect</button>
             </section>
         )

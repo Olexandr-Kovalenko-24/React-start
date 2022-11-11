@@ -1,5 +1,5 @@
 import React from "react";
-import Greeting from "./components/Greeting";
+// import Greeting from "./components/Greeting";
 import Card from "./components/UserCard"
 import {userData} from './components/Greeting/UserData';
 
@@ -13,7 +13,7 @@ class App extends React.Component {
         }
     }
 
-    userMap = () => this.state.users.map((userObj) => <Card userName={userObj.name} description={userObj.description} src={userObj.profilePicture} alt={userObj.name[0]} key={userObj.id} />)
+    userMap = () => this.state.users.map((userObj) => <Card user={userObj} key={userObj.id} />)
 
     sortUsers = () => {
         const { users, isSort } = this.state;
@@ -29,7 +29,9 @@ class App extends React.Component {
         return (
             <section>
                 <button onClick={this.sortUsers}>Sorted</button>
+                <div className="class-container">
                 {this.userMap()}
+                </div>
             </section>
         )
     }
