@@ -1,7 +1,7 @@
 import React from "react";
 // import Greeting from "./components/Greeting";
 import Card from "../UserCard"
-import {userData} from '../UserCard/UserData';
+import {userData} from './UserData';
 
 
 class UserDashboard extends React.Component {
