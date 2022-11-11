@@ -13,7 +13,7 @@ class App extends React.Component {
         }
     }
 
-    userMap = () => this.state.users.map((userObj) => <Card userName={userObj.name} description={userObj.description} src={userObj.profilePicture} key={userObj.id} />)
+    userMap = () => this.state.users.map((userObj) => <Card userName={userObj.name} description={userObj.description} src={userObj.profilePicture} alt={userObj.name[0]} key={userObj.id} />)
 
     sortUsers = () => {
         const { users, isSort } = this.state;

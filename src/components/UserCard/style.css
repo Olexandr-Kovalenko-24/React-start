@@ -36,7 +36,9 @@
     align-items: center;
     justify-content: center;
     border: 2px solid cornflowerblue;
-    z-index: 1;
+    font-size: 5em;
+    color: white;
+    text-align: center;
 }
 
 .connectButton {
