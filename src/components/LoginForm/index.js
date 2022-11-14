@@ -15,9 +15,13 @@ class LoginForm extends React.Component {
         })
     }
  
+    submitHandler = (event) => {
+    event.preventDefault()
+    }
+
     render (){
     return (
-        <form>
+        <form onSubmit={this.submitHandler}>
             <input 
             type="text" 
             placeholder="Type your email" 
@@ -36,7 +40,5 @@ class LoginForm extends React.Component {
 }
 }
 
-// const submitHandler = (event) => {
-//     event.preventDefault()
-// }
+
 export default LoginForm;
