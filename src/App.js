@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from "./components/LoginForm";
+import List from "./components/ToDoList/List";
 
 class App extends React.Component {
 constructor(props) {
@@ -12,7 +12,7 @@ constructor(props) {
     render() {
         return (
             <div>
-                <LoginForm />
+                <List />
             </div>
         )
     }
