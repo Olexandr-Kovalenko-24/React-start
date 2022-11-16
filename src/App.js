@@ -1,5 +1,5 @@
 import React from "react";
-import List from "./components/ToDoList/List";
+import TodoList from "./components/ToDoList";
 
 class App extends React.Component {
 constructor(props) {
@@ -12,7 +12,7 @@ constructor(props) {
     render() {
         return (
             <div>
-                <List />
+                <TodoList />
             </div>
         )
     }
