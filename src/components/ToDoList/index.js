@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoForm from './ListForm';
 import ListElement from './ListElement';
+import styles from './ToDoList.module.css';
 
 class TodoList extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class TodoList extends Component {
 
     render() {
         return (
-        <section>
+        <section className={styles.section}>
             <TodoForm sendDataToParent={this.addNewItem} />
             <ul>
                 {this.mapList()}

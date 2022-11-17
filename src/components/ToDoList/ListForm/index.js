@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './ListForm.module.css'
 
 class TodoForm extends Component {
     constructor(props) {
@@ -37,5 +38,15 @@ class TodoForm extends Component {
         );
     }
 }
+
+function cx (objectClassNames){
+    const cortageArray = Object
+    .entries(objectClassNames)
+    .filter(([cln, condition])=>condition)
+    .map(([cln, condition])=>cln)
+    .join(' ');
+}
+
+
 
 export default TodoForm;
