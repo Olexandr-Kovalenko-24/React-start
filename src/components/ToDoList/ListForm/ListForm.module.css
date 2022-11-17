@@ -1,7 +1,16 @@
-.valid {
-background-color: green;
+
+.input {
+    height: 2em;
 }
 
-.invalid{
-background-color: red;
+
+.valid {
+    border: 2px solid green;
+    background-color: rgb(188, 238, 188);
+}
+
+
+.invalid {
+    border: 2px solid red;
+    background-color: lightpink;
 }

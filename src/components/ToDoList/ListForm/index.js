@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 import styles from './ListForm.module.css'
+import cx from 'classnames';
 
 class TodoForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            task: ''
+            task: '',
+            isInputValid: true
         }
     }
     
-    changeHandler = ({target: {name, value}}) => {
+    changeHandler = ({target: {value, name}}) => {
+        if (value.includes(' ')) {
+            this.setState({
+                isInputValid: false
+            })
+        } else {
+            this.setState({
+                isInputValid: true
+            })
+        }
         this.setState({
-            [name]: value,
+            [name]: value
         })
     }
 
@@ -24,7 +35,11 @@ class TodoForm extends Component {
     }
     
     render() {
-        const {task} = this.state;
+        const {task, isInputValid} = this.state;
+        const cnames = cx([styles.input], {
+            [styles.valid]: isInputValid,
+            [styles.invalid]: !isInputValid
+        });
         return (
             <form onSubmit={this.submitHandler}>
               <input 
@@ -32,21 +47,13 @@ class TodoForm extends Component {
               placeholder='type next task' 
               value={task} 
               name='task'
-              onChange={this.changeHandler} />
+              onChange={this.changeHandler}
+              className={cnames} />
               <button>Add to list</button>
             </form>
         );
     }
 }
-
-function cx (objectClassNames){
-    const cortageArray = Object
-    .entries(objectClassNames)
-    .filter(([cln, condition])=>condition)
-    .map(([cln, condition])=>cln)
-    .join(' ');
-}
-
 
 
 export default TodoForm;
