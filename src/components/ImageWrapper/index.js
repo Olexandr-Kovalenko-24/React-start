@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ImageWrapper = (props) => {
-    const {children, width, height, title, ...rest} = props;
+    const {children, width, height, ...rest} = props;
 
     const inlineStyles = {
         width, 
