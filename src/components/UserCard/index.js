@@ -4,14 +4,14 @@ import './style.css';
 class Card extends React.Component {
 
     render() {
-        const {user: {id, name, description, profilePicture}} = this.props;
+        const {user: {name: {first, last}, email, picture: {large}}} = this.props;
         return (
             <section className="card-wrapper">
                 <div className="image-wrapper">
-                <img src={profilePicture} className="avatar" />
+                <img src={large} className="avatar" />
                 </div>
-                <h2 className="userName">{name}</h2>
-                <p className="discription">{description}</p>
+                <h2 className="userName">{first}{last}</h2>
+                <p className="discription">{email}</p>
                 <button className="connectButton">Connect</button>
             </section>
         )
