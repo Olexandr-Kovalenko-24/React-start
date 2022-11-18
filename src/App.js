@@ -1,27 +1,18 @@
 import React from "react";
-// import TodoList from "./components/ToDoList";
-import FlexContainer from "./components/Flex";
-import styles from './App.module.css'
+
+import ImageWrapper from "./components/ImageWrapper";
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     isOn: true
-        // }
     }
 
     render() {
         return (
-            <FlexContainer fd='row' jc='space-evenly' ai='center'>
-                <div className={styles.box}>1</div>
-                <div className={styles.box}>2</div>
-                <div className={styles.box}>3</div>
-                <div className={styles.box}>4</div>
-                <div className={styles.box}>5</div>
-                <div className={styles.box}>6</div>
-            </FlexContainer>
+            <ImageWrapper w="200px" h="350px" t="this is image!!!" d="flex">
+                <img src='https://i.pinimg.com/originals/b9/59/f1/b959f1670d2631589643575de5a782b7.jpg' />
+            </ImageWrapper>
         )
     }
 }
