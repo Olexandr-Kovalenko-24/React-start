@@ -10,7 +10,8 @@ class UserDashboard extends React.Component {
         this.state = {
             users: [],
             error: null,
-            isFetching: true
+            isFetching: true,
+            page: 1
         }
     }
 
@@ -18,8 +19,15 @@ class UserDashboard extends React.Component {
         this.getData();
     }
 
+    componentDidUpdate (prevProps, prevState){
+        if(prevState.page !== this.state.page){
+            this.getData();
+        }
+    }
+
     getData = () => {
-        getUsers()
+        const {page} = this.state;
+        getUsers({page})
         .then(data=>{
             this.setState({
                 users: data.results
@@ -37,12 +45,29 @@ class UserDashboard extends React.Component {
         })
     }
 
-    
+    next = () => {
+        const {page} = this.state;
+            this.setState({
+                page: page+1
+        })
+    }
+
+    prev = () => {
+        const {page} = this.state;
+        if (page > 1) {
+            this.setState({
+                page: page-1
+        })
+        }
+    }
 
     render() {
-        const {users, error, isFetching} =this.state;
+        const {users, error, isFetching, page} = this.state;
         return (
             <section>
+                <button onClick={this.prev}>{'<'}</button>
+                    <span>{page}</span>
+                <button onClick={this.next}>{'>'}</button>
                 {error && <div>Oops! Sorry</div>}
                 {users && <UsersList users={users}/>}
                 {isFetching && <Spiner />}
