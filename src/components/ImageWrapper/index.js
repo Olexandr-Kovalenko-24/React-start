@@ -1,17 +1,17 @@
 import React from 'react';
 
 const ImageWrapper = (props) => {
-    const {children, w, h, t, d} = props;
+    const {children, width, height, title, ...rest} = props;
 
-    const styles = {
-        width: w,
-        height: h,
-        title: t,
-        display: d
+    const inlineStyles = {
+        width, 
+        height,
+        overflow: 'hidden',
+        objectFit: 'cover'
     }
 
     return (
-        <div style={styles}>
+        <div style={inlineStyles} {...rest}>
             {children}
         </div>
     );
