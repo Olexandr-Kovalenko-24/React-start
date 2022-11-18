@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class FlexContainer extends Component {
-    constructor(props) {
-        super(props);
-        
+const FlexContainer = (props) => {
+    const {children, fd, jc, ai} = props;
+
+    const styles = {
+        display: 'flex',
+        flexDirection: fd,
+        justifyContent: jc,
+        alignItems: ai
     }
-    
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
+
+    return (
+        <div style={styles}>
+            {children}
+        </div>
+    );
 }
 
 export default FlexContainer;
