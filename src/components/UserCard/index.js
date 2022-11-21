@@ -18,4 +18,19 @@ class Card extends React.Component {
     }
 }
 
+
+// Card.defaultProps = {
+//     first: 'Alex',
+//     last: 'Doe',
+//     email: 'example.com',
+//     large: "/logo192.png"
+// }
+
+// Card.protoTypes = {
+//     first: PropTypes.string,
+//     last: PropTypes.string,
+//     email: PropTypes.string,
+//     large: PropTypes.string
+// }
+
 export default Card;
