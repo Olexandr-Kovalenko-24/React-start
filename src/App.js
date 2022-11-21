@@ -1,6 +1,8 @@
 import React from "react";
-// import UserDashboard from './components/UserDashbord'
-import ProductCards from "./components/ProductCards";
+import Card from "./components/UserCard";
+
+// import UserDashboard from './components/UserDashbord';
+// import ProductCards from "./components/ProductCards";
 
 class App extends React.Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <ProductCards/>
+            <Card />
         )
     }
 }
