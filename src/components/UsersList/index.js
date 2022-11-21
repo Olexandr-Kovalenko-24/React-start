@@ -6,29 +6,45 @@ class UsersList extends Component {
         super(props);
         this.state = {
             isSort: true,
+            filterValue: '',
         }
     }
 
-    userMap = () => this.props.users.map((userObj) =>
+    filterList = () => {
+        const {filterValue} = this.state;
+        return this.props.users.filter(({name: {first, last}})=>{
+            return first.toLowerCase().includes(filterValue) ||
+            last.toLowerCase().includes(filterValue)
+        })
+    }
+
+    userMap = (usersArray) => usersArray.map((userObj) =>
         <Card user={userObj} key={userObj.login.uuid} />)
 
-    // sortUsers = () => {
-    //     const { users } = props.state;
-    //     const {isSort} = this.state;
-    //     const newUsers = [...users];
-    //     newUsers.sort((a, b) => (a.name > b.name && isSort) ? 1 : -1);
-    //     this.setState({
-    //         users: newUsers,
-    //         isSort: !isSort
-    //     })
-    // }
+    sortUsers = (usersArray) => {
+        const {isSort} = this.state;
+        return usersArray.sort((a, b) => (a.name > b.name && isSort) ? 1 : -1);
+    }
+
+    changeHandler = ({target: {name, value}}) => {
+        this.setState({
+            [name]: value
+        })
+        this.filterList();
+    }
+
 
     render() {
+        const {filterValue} = this.state;
         return (
             <>
-                {/* <button onClick={this.sortUsers}>Sorted</button> */}
+                <button onClick={this.sortUsers}>Sorted</button>
+                <input type='text'
+                value={filterValue}
+                name='filterValue'
+                onChange={this.changeHandler} />
                 <div className="class-container">
-                    {this.userMap()}
+                    {this.userMap(this.filterList())}
                 </div>
             </>
         );
