@@ -20,11 +20,7 @@ class UsersList extends Component {
 
     userMap = (usersArray) => usersArray.map((userObj) =>
         <Card user={userObj} key={userObj.login.uuid} />)
-
-    sortUsers = (usersArray) => {
-        const {isSort} = this.state;
-        return usersArray.sort((a, b) => (a.name > b.name && isSort) ? 1 : -1);
-    }
+        
 
     changeHandler = ({target: {name, value}}) => {
         this.setState({
@@ -38,11 +34,12 @@ class UsersList extends Component {
         const {filterValue} = this.state;
         return (
             <>
-                <button onClick={this.sortUsers}>Sorted</button>
-                <input type='text'
+                <input 
+                type='text'
                 value={filterValue}
                 name='filterValue'
-                onChange={this.changeHandler} />
+                onChange={this.changeHandler} 
+                />
                 <div className="class-container">
                     {this.userMap(this.filterList())}
                 </div>
