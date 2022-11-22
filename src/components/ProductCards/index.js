@@ -7,7 +7,7 @@ class ProductCards extends Component {
         super(props);
         this.state = {
             products: [],
-            isFetching: false
+            isFetching: true
         }
     }
     
