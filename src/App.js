@@ -1,23 +1,26 @@
 import React from "react";
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
-import ToDolist from './components/ToDoList'
-import LoginForm from './components/LoginForm'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import ToDolist from './components/ToDoList';
+import LoginForm from './components/LoginForm';
+import CounterPage from './pages/CounterPage';
 
 class App extends React.Component {
 
     render() {
         return (
             <BrowserRouter>
-            <ul>
-                <li><Link to='/'>Go to Home</Link></li>
-                <li><Link to='/login'>Go to LoginForm</Link></li>
-                <li><Link to='/todo'>Go to ToDo</Link></li>
-            </ul>
+                <ul>
+                    <li><Link to='/'>Go to Home</Link></li>
+                    <li><Link to='/counter'>Go to CounterPage</Link></li>
+                    <li><Link to='/login'>Go to LoginForm</Link></li>
+                    <li><Link to='/todo'>Go to ToDo</Link></li>
+                </ul>
                 <Routes>
-                    <Route path="/" element={<Home />}/>
-                    <Route path="/login" element={<LoginForm />}/>
-                    <Route path="/todo" element={<ToDolist />}/>
-                    <Route path="*" element={<NotFound />}/>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/counter" element={<CounterPage />} />
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/todo" element={<ToDolist />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>
         )
