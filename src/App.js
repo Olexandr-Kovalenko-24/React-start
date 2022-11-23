@@ -17,6 +17,7 @@ class App extends React.Component {
                     <Route path="/" element={<Home />}/>
                     <Route path="/login" element={<LoginForm />}/>
                     <Route path="/todo" element={<ToDolist />}/>
+                    <Route path="*" element={<NotFound />}/>
                 </Routes>
             </BrowserRouter>
         )
@@ -24,6 +25,10 @@ class App extends React.Component {
 }
 
 export default App;
+
+const NotFound = () => {
+    return <div>Page not found</div>
+}
 
 const Home = () => {
     return <h1>You are home now!</h1>
