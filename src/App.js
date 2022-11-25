@@ -4,6 +4,7 @@ import ToDolist from './components/ToDoList';
 import LoginForm from './components/LoginForm';
 import CounterPage from './pages/CounterPage';
 import LoaderPage from "./pages/LoaderPage";
+import WindowSizerPage from "./pages/WindowSizesPage";
 
 class App extends React.Component {
 
@@ -14,6 +15,7 @@ class App extends React.Component {
                     <li><Link to='/'>Go to Home</Link></li>
                     <li><Link to="/loader">Go to Loader</Link></li>
                     <li><Link to='/counter'>Go to CounterPage</Link></li>
+                    <li><Link to="/windowsizer">Go to WindowSizerPage</Link></li>
                     <li><Link to='/login'>Go to LoginForm</Link></li>
                     <li><Link to='/todo'>Go to ToDo</Link></li>
                 </ul>
@@ -21,6 +23,7 @@ class App extends React.Component {
                     <Route path="/" element={<Home />} />
                     <Route path="/loader" element={<LoaderPage />}/>
                     <Route path="/counter" element={<CounterPage />} />
+                    <Route path="/windowsizer" element={<WindowSizerPage />}/>
                     <Route path="/login" element={<LoginForm />} />
                     <Route path="/todo" element={<ToDolist />} />
                     <Route path="*" element={<NotFound />} />

@@ -25,13 +25,7 @@ class WindowResizer extends Component {
     }
 
     render() {
-        const {x,y} = this.state;
-        return (
-            <section>
-                <p>Current width: {x}px</p>
-                <p>Current height: {y}px</p>
-            </section>
-        );
+        return this.props.children(this.state);
     }
 }
 
