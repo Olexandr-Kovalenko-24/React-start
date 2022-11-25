@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 import CounterPage from './pages/CounterPage';
 import LoaderPage from "./pages/LoaderPage";
 import WindowSizerPage from "./pages/WindowSizesPage";
+import Parent from "./components/RenderPropExampl/Parent";
 
 class App extends React.Component {
 
@@ -18,6 +19,7 @@ class App extends React.Component {
                     <li><Link to="/windowsizer">Go to WindowSizerPage</Link></li>
                     <li><Link to='/login'>Go to LoginForm</Link></li>
                     <li><Link to='/todo'>Go to ToDo</Link></li>
+                    <li><Link to="/parent-child">Go to render-props</Link></li>
                 </ul>
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -27,6 +29,7 @@ class App extends React.Component {
                     <Route path="/login" element={<LoginForm />} />
                     <Route path="/todo" element={<ToDolist />} />
                     <Route path="*" element={<NotFound />} />
+                    <Route path="/parent-child" element={<Parent />}/>
                 </Routes>
             </BrowserRouter>
         )
