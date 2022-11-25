@@ -25,13 +25,11 @@ class Counter extends React.PureComponent {
 
     render(){
         console.log('counter render');
-        return (
-            <div>
-                <h1>{this.state.count}</h1>
-                <button onClick={this.increment}>+</button>
-                <button onClick={this.decrement}>-</button>
-            </div>
-        )
+        return this.props.children({
+            count: this.state.count,
+            increment: this.increment,
+            decrement: this.decrement
+        })
     }
 }
 

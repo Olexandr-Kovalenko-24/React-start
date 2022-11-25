@@ -28,7 +28,17 @@ class CounterPage extends React.Component {
                     value={inputValue}
                     onChange={this.changeHandler}
                 />
-                <Counter step={inputValue} />
+                <Counter step={inputValue}>
+                {({count, increment, decrement})=>{
+                return (
+                    <div>
+                        <h1>{count}</h1>
+                        <button onClick={increment}>+</button>
+                        <button onClick={decrement}>-</button>
+                    </div>
+                )
+                }}
+                </Counter>
             </div>
         );
     }
