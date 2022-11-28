@@ -1,33 +1,10 @@
 .header {
     width: 100%;
-    background-color: rgba(194, 221, 248, 0.61);
-    color: steelblue;
+    background-color: dodgerblue;
+    color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-}
-
-.user {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    border: 2px solid blueviolet;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-}
-
-.avatar {
-    width: 80px;
-    height: 80px;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+    padding: 15px;
+    box-sizing: border-box;
 }

@@ -1,28 +1,18 @@
-
 import React from 'react';
-import UserContext from '../../contexts';
 import styles from './Header.module.css';
+import UserMenu from './UserMenu';
+
 
 function Header (props) {
 
     return (
-        <UserContext.Consumer>
-            {([{firstName, lastName, avatar, email}, logOut])=>{
-                return (
-                    <div className={styles.header}>
-                    <img src="/logo192.png" className={styles.logo} />
-                    <div className={styles.user}>
-                    <img src={avatar} className={styles.avatar} />
-                    <div className={styles.info}>
-                    <span>{firstName} {lastName}</span>
-                    <span>{email}</span>
-                    </div>
-                    <button onClick={logOut}>LogOut</button>
-                    </div>
-                </div>
-                )
-            }}
-        </UserContext.Consumer>
+        <div className={styles.header}>
+        <div style={{border: '2px solid red'}}>
+            LogoText
+        </div>
+        {/* <input type='checkbox' /> */}
+       <UserMenu />
+    </div>
     );
 }
 

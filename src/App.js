@@ -1,7 +1,10 @@
 import React from "react";
 import Tree from "./components/Tree";
-import UserContext from "./contexts";
-import Header from './components/Header'
+import UserContext from "./contexts/UserContext";
+import Header from './components/Header';
+import ThemeContext from './contexts/ThemeContext';
+import CONSTANS from './constants';
+const {THEMES} = CONSTANS;
 
 class App extends React.Component {
     constructor(props) {
@@ -12,7 +15,8 @@ class App extends React.Component {
                 lastName: 'Doe',
                 email: 'example.com',
                 avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3DZRWRCmpFRBnw-n5HofJjR_erTYVh3aEc9Vs-tPO7w&s'
-            }
+            },
+            theme: THEMES.LIGHT
         }
     }
     
@@ -23,11 +27,14 @@ class App extends React.Component {
     }
 
     render() {
+        const {user, theme} = this.state;
         return (
-            <UserContext.Provider value={[this.state.user, this.logOutCallback]}>
+            <ThemeContext.Provider value={theme}>
+            <UserContext.Provider value={[user, this.logOutCallback]}>
                 <Header />
                 <Tree />
             </UserContext.Provider>
+            </ThemeContext.Provider>
         )
     }
 }
