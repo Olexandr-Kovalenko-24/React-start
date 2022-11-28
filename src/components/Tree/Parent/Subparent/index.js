@@ -1,12 +1,12 @@
 import React from "react";
-import Parent from "./Parent";
+import Child from "./Child";
 
-function Tree (props) {
+function Subparent(props) {
     return(
         <div style={{border: '2px solid black', padding:'20px'}}>
-        <p>Tree</p>
-        <Parent />
+        <p>Subparent</p>
+        <Child />
         </div>
     )
 }
-export default Tree;
+export default Subparent;
