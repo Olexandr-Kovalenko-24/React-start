@@ -1,5 +1,5 @@
 import React from 'react';
-import WindowSizer from '../../components/WindowResizer';
+import WindowSizer from '../../components/WindowSizer';
 
 const WindowSizerPage = () => {
     return (

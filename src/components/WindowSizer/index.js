@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class WindowResizer extends Component {
+class WindowSizer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,4 +29,4 @@ class WindowResizer extends Component {
     }
 }
 
-export default WindowResizer;
+export default WindowSizer;
