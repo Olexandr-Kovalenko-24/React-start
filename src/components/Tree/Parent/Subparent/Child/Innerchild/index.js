@@ -13,6 +13,6 @@ const {user: {firstName, lastName, avatar}, setUser} = props;
     )
 }
 
-const wrappedInnerChild = withUser(InnerChild);
+const InnerChildWrapped = withUser(InnerChild);
 
-export default wrappedInnerChild;
+export default InnerChildWrapped;

@@ -18,6 +18,6 @@ const UserMenu = (props) => {
     )
 }
 
-const wrappedMenu = withUser(UserMenu);
+const UserMenuWrapped = withUser(UserMenu);
 
-export default wrappedMenu;
+export default UserMenuWrapped;
