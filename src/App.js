@@ -26,16 +26,10 @@ class App extends React.Component {
         })
     }
 
-    changeTheme = () => {
-        if(this.state.theme === THEMES.LIGHT){
+    changeTheme = (theme) => {
             this.setState({
-                theme: THEMES.DARK
+                theme
             })
-        } else {
-            this.setState({
-                theme: THEMES.LIGHT
-            })
-        }
     }
 
     render() {
