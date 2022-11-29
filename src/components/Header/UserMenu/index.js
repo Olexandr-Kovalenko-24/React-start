@@ -1,27 +1,23 @@
 import React from 'react';
-import UserContext from '../../../contexts/UserContext';
+import { withUser } from '../../../HOCs/withUser';
 
+const UserMenu = (props) => {
+    const {user, setUser} = props;
 
-const UserMenu = () => {
+    if (!Object.keys(user).length) {
+        return null;
+    }
+
     return (
-        <UserContext.Consumer>
-        {([userData, logOut])=>{
-            if(!Object.keys(userData).length) {
-                return null;
-            }
-
-            return (
-                <div style={{border: '2px solid red'}}>
-                   <img src={userData.avatar} style={{width: '50px', height: '50px', borderRadius: '50%'}} />
-                    <span>{userData.firstName}</span>
-                    <span>{userData.lastName}</span>
-                    <button onClick={logOut}>logOut</button>
-                </div>
-
-            )
-        }}
-        </UserContext.Consumer>
-    );
+        <div style={{ border: '2px solid red' }}>
+            <img src={user.avatar} style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+            <span>{user.firstName}</span>
+            <span>{user.lastName}</span>
+            <button onClick={setUser}>logOut</button>
+        </div>
+    )
 }
 
-export default UserMenu;
+const wrappedMenu = withUser(UserMenu);
+
+export default wrappedMenu;
