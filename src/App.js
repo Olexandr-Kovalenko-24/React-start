@@ -26,10 +26,22 @@ class App extends React.Component {
         })
     }
 
+    changeTheme = () => {
+        if(this.state.theme === THEMES.LIGHT){
+            this.setState({
+                theme: THEMES.DARK
+            })
+        } else {
+            this.setState({
+                theme: THEMES.LIGHT
+            })
+        }
+    }
+
     render() {
         const {user, theme} = this.state;
         return (
-            <ThemeContext.Provider value={theme}>
+            <ThemeContext.Provider value={[theme, this.changeTheme]}>
             <UserContext.Provider value={[user, this.logOutCallback]}>
                 <Header />
                 <Tree />

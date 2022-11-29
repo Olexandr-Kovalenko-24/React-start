@@ -1,18 +1,28 @@
 import React from 'react';
 import styles from './Header.module.css';
 import UserMenu from './UserMenu';
+import ThemeContext from '../../contexts/ThemeContext';
+import CONSTANS from "../../constants";
+const { THEMES } = CONSTANS;
 
 
-function Header (props) {
+function Header(props) {
 
     return (
-        <div className={styles.header}>
-        <div style={{border: '2px solid red'}}>
-            LogoText
-        </div>
-        {/* <input type='checkbox' /> */}
-       <UserMenu />
-    </div>
+        <ThemeContext.Consumer>
+            {([value, changeTheme]) => {
+                return (
+                    <div className={styles.header}>
+                        <div style={{ border: '2px solid red' }}>
+                            LogoText
+                        </div>
+                        <button onClick={changeTheme}>change theme</button>
+                        <UserMenu />
+                    </div>
+                )
+            }}
+        </ThemeContext.Consumer>
+
     );
 }
 

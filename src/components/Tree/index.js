@@ -10,7 +10,7 @@ function Tree(props) {
 
     return (
         <ThemeContext.Consumer>
-            {(value) => {
+            {([value]) => {
                 const cn = cx(styles.container, {
                     [styles.darkTheme]: value === THEMES.DARK,
                     [styles.lightTheme]: value === THEMES.LIGHT
