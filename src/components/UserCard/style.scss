@@ -1,5 +1,12 @@
 $border-radius-50pc: 50%;
 $main-color: cornflowerblue;
+$second-color: white;
+
+%one-line-elipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 @mixin flex ($flexDirection, $jContent, $aItems) {
     display: flex;
@@ -26,7 +33,7 @@ $main-color: cornflowerblue;
         @include sizes(100px, 100px);
         border-radius: $border-radius-50pc;
         font-size: 5em;
-        color: white;
+        color: $second-color;
         position: relative;
         @include flex(column, center, center);
 
@@ -57,9 +64,7 @@ $main-color: cornflowerblue;
     >.discription {
         line-height: 1.5em;
         margin-bottom: 25px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        @extend %one-line-elipsis;
     }
 
     >.connectButton {
@@ -67,6 +72,6 @@ $main-color: cornflowerblue;
         border-radius: 10px;
         border: 1px solid $main-color;
         background-color: $main-color;
-        color: white;
+        color: $second-color;
     }
 }
