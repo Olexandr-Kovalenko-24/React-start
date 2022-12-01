@@ -1,0 +1,72 @@
+$border-radius-50pc: 50%;
+$main-color: cornflowerblue;
+
+@mixin flex ($flexDirection, $jContent, $aItems) {
+    display: flex;
+    flex-direction: $flexDirection;
+    justify-content: $jContent;
+    align-items: $aItems;
+}
+
+@mixin sizes ($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+.card-wrapper {
+    @include sizes(250px, 300px);
+    background-color: rgba(135, 207, 235, 0.267);
+    @include flex(column, center, center);
+    border-radius: 20px;
+    margin: 20px;
+    border: 3px solid $main-color;
+    overflow: hidden;
+
+    >.image-wrapper{
+        @include sizes(100px, 100px);
+        border-radius: $border-radius-50pc;
+        font-size: 5em;
+        color: white;
+        position: relative;
+        @include flex(column, center, center);
+
+        >.avatar{
+            @include sizes(100%, 100%);
+            border-radius: $border-radius-50pc;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+    }
+
+    >.userName {
+        font: {
+            size: 20px;
+            weight: 800;
+        }
+        margin: {
+            top: 20px;
+            bottom: 0px;
+        }
+    }
+
+    >.discription {
+        line-height: 1.5em;
+        margin-bottom: 25px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    >.connectButton {
+        @include sizes(100px, 30px);
+        border-radius: 10px;
+        border: 1px solid $main-color;
+        background-color: $main-color;
+        color: white;
+    }
+}

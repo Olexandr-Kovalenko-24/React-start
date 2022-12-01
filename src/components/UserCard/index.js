@@ -1,20 +1,9 @@
 import React from "react";
-import './style.css';
+// import './style.css';
+import './style.scss';
 import PropTypes from 'prop-types';
 
 class Card extends React.Component {
-    // static defaultProps = {
-    //     user: {
-    //         name: {
-    //             first: 'Alex',
-    //             last: 'Doe'
-    //         },
-    //         email: 'example.com',
-    //         picture: {
-    //             large: "/logo192.png"
-    //         }
-    //     }
-    // }
 
     render() {
         const { user: { name: { first, last }, email, picture: { large } } } = this.props;
