@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SignUp.module.css';
-import * as yup from 'yup';
-
-const SCHEMA = yup.object({
-    firstName: yup.string().required().min(1).max(200),
-    lastName: yup.string().required().min(1).max(200),
-    email: yup.string().email().required(),
-    pass: yup.string().required().min(8).max(200).
-    matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/, 
-    'Pass must contains at least one big and small letter and symbol')
-})
+import {SCHEMA} from '../../schemes/index'
 
 class SignUpForm extends Component {
     constructor(props) {
