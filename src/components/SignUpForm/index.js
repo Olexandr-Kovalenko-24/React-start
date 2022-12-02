@@ -1,64 +1,48 @@
 import React, { Component } from 'react';
 import styles from './SignUp.module.css';
-import {SCHEMA} from '../../schemes/index'
+import { Formik, Form, Field } from 'formik';
 
-class SignUpForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            pass: ''
-        }
+function SignUpForm(props) {
+
+    const formikSubmit = (data, formikBag) => {
+        console.log(data, formikBag)
     }
 
-    changeHandler = ({target: {value, name}}) => {
-        this.setState({
-            [name]: value
-        })
-    }
-    
-    submitHandler = (event) => {
-        event.preventDefault();
-        SCHEMA.validate(this.state)
-        .then(validateData => {
-            console.log(validateData)
-        })
-        .catch (err => {
-            console.log(err.message)
-        })
-    }
+    const initialValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        pass: ''
+    };
 
-    render() {
-        const {firstName, lastName, email, pass} = this.state;
-        return (
-            <form className={styles.form} 
-            onSubmit={this.submitHandler} >
-                <input type='text' 
-                name='firstName'
-                value={firstName}
-                placeholder='firstName' 
-                onChange={this.changeHandler} />
-                <input type='text' 
-                name='lastName'
-                value={lastName}
-                placeholder='lastName' 
-                onChange={this.changeHandler} />
-                <input type='text' 
-                name='email'
-                value={email}
-                placeholder='email' 
-                onChange={this.changeHandler} />
-                <input type='text' 
-                name='pass'
-                value={pass}
-                placeholder='pass' 
-                onChange={this.changeHandler} />
-                <button>Send</button>
-            </form>
-        );
-    }
+    return (
+        <Formik initialValues={initialValues}
+            onSubmit={formikSubmit}>
+            {(formikProps) => {
+                return (
+                    <Form className={styles.form}>
+                        <Field 
+                        name='firstName'
+                        placeholder='firstName'
+                        />
+                        <Field 
+                        name='lastName'
+                        placeholder='lastName'
+                        />
+                        <Field 
+                        name='email'
+                        placeholder='email'
+                        />
+                        <Field 
+                        name='pass'
+                        placeholder='pass'
+                        />
+                        <button>Send</button>
+                    </Form>
+                )
+            }}
+        </Formik>
+    );
 }
 
 export default SignUpForm;
