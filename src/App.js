@@ -1,12 +1,12 @@
 import React from "react";
-import UserCard from './components/UserCard'
+import SignUpForm from "./components/SignUpForm";
 
 class App extends React.Component {
 
 
     render() {
         return(
-            <UserCard />
+            <SignUpForm />
         )
     }
 }
