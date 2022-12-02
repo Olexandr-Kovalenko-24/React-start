@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import styles from './SignUp.module.css';
-import { Formik, Form, Field } from 'formik';
+import {SCHEMA} from '../../schemes/index';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 function SignUpForm(props) {
 
     const formikSubmit = (data, formikBag) => {
-        console.log(data, formikBag)
+        console.log(data, formikBag);
+        //Send data to server
+        formikBag.resetForm();
     }
 
     const initialValues = {
@@ -17,7 +20,8 @@ function SignUpForm(props) {
 
     return (
         <Formik initialValues={initialValues}
-            onSubmit={formikSubmit}>
+            onSubmit={formikSubmit}
+            validationSchema={SCHEMA}>
             {(formikProps) => {
                 return (
                     <Form className={styles.form}>
@@ -25,19 +29,23 @@ function SignUpForm(props) {
                         name='firstName'
                         placeholder='firstName'
                         />
+                        <ErrorMessage name='firstName' component='p'/>
                         <Field 
                         name='lastName'
                         placeholder='lastName'
                         />
+                        <ErrorMessage name='lastName' />
                         <Field 
                         name='email'
                         placeholder='email'
                         />
+                        <ErrorMessage name='email' />
                         <Field 
                         name='pass'
                         placeholder='pass'
                         />
-                        <button>Send</button>
+                        <ErrorMessage name='pass' />
+                        <button type='submit'>Send</button>
                     </Form>
                 )
             }}
