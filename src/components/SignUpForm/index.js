@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SignUp.module.css';
-import {SCHEMA} from '../../schemes/index';
+import {SCHEMA} from '../../schemes/SignUpForm';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 function SignUpForm(props) {

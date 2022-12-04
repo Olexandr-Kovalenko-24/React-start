@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.button {
+    text-align: center;
+    border-radius: 4px;
+    width: 100px;
+    border: 1px solid white;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #3ea9f5;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}

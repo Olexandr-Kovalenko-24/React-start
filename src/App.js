@@ -1,12 +1,12 @@
 import React from "react";
-import SignUpForm from "./components/SignUpForm";
+import FormSquadPage from "./pages/FormsSquadPage";
 
 class App extends React.Component {
 
 
     render() {
-        return(
-            <SignUpForm />
+        return (
+            <FormSquadPage />
         )
     }
 }
