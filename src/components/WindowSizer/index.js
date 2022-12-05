@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const WindowSizer = () => {
-    const [coordinates, setCoordinates] = useState({
+    const [sizes, setSizes] = useState({
         x: window.innerWidth,
         y: window.innerHeight
     });
@@ -14,7 +14,7 @@ const WindowSizer = () => {
     }, [])
 
     const resizeHandler = () => {
-        setCoordinates({
+        setSizes({
             y: window.innerHeight,
             x: window.innerWidth
         })
@@ -22,8 +22,8 @@ const WindowSizer = () => {
 
     return (
         <div>
-            <p>Current width: {coordinates.x}px</p>
-            <p>Current height: {coordinates.y}px</p>
+            <p>Current width: {sizes.x}px</p>
+            <p>Current height: {sizes.y}px</p>
         </div>
     );
 }
