@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import MouseTracker from "./components/MouseTracker";
 
 
 function App(props){
-
+    const [isVisible, setVisible] = useState(true);
     return (
-        <MouseTracker />
+        <>{isVisible && <MouseTracker />}</>
     )
 }
 
