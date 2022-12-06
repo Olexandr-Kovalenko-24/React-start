@@ -14,17 +14,17 @@ class FormSquadPage extends Component {
     }
 
     loginSignUp = () => {
-        if(this.state.button === 'Login'){
+        if (this.state.button === 'Login') {
             this.setState({
                 button: 'Signup',
                 path: '/'
             })
-        } 
+        }
         if (this.state.button === 'Signup') {
             this.setState({
                 button: 'Login',
                 path: '/login'
-            }) 
+            })
         }
     }
 
@@ -33,9 +33,9 @@ class FormSquadPage extends Component {
             <BrowserRouter>
                 <header className={styles.header}>
                     <img src='https://www.squadhelp.com/img/logo.png' />
-                    <button className={styles.button} >
-                        <Link onClick={this.loginSignUp} to={this.state.path} className={styles.link} >{this.state.button} </Link>
-                    </button>
+                    <Link onClick={this.loginSignUp} to={this.state.path} className={styles.link}>
+                        <button className={styles.button} >{this.state.button}</button>
+                    </Link>
                 </header>
                 <Routes>
                     <Route path="/" element={<SignUpSquadhelp />} />
