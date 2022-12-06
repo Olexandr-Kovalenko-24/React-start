@@ -8,7 +8,7 @@ function App(props){
     const [isVisible, setVisible] = useState(true);
     return (
         // <>{isVisible && <MouseTracker />}</>
-        <Timer />
+        <UserDashboard />
         )
 }
 

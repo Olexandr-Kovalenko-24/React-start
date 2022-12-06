@@ -3,22 +3,37 @@ import React from "react";
 import './style.scss';
 import PropTypes from 'prop-types';
 
-class Card extends React.Component {
-
-    render() {
-        const { user: { name: { first, last }, email, picture: { large } } } = this.props;
-        return (
-            <section className="card-wrapper">
-                <div className="image-wrapper">
-                    <img src={large} className="avatar" />
-                </div>
-                <h2 className="userName">{first}{last}</h2>
-                <p className="discription">{email}</p>
-                <button className="connectButton">Connect</button>
-            </section>
-        )
-    }
+const Card = (props) => {
+    const { user: { name: { first, last }, email, picture: { large } } } = props;
+    return (
+        <section className="card-wrapper">
+            <div className="image-wrapper">
+                <img src={large} className="avatar" />
+            </div>
+            <h2 className="userName">{first}{last}</h2>
+            <p className="discription">{email}</p>
+            <button className="connectButton">Connect</button>
+        </section>
+    )
 }
+
+
+// class Card extends React.Component {
+
+//     render() {
+//         const { user: { name: { first, last }, email, picture: { large } } } = this.props;
+//         return (
+//             <section className="card-wrapper">
+//                 <div className="image-wrapper">
+//                     <img src={large} className="avatar" />
+//                 </div>
+//                 <h2 className="userName">{first}{last}</h2>
+//                 <p className="discription">{email}</p>
+//                 <button className="connectButton">Connect</button>
+//             </section>
+//         )
+//     }
+// }
 
 Card.propTypes = {
     user: PropTypes.shape({

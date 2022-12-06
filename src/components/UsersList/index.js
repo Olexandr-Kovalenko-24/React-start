@@ -1,51 +1,87 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Card from "../UserCard"
 
-class UsersList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isSort: true,
-            filterValue: '',
-        }
-    }
+const UsersList = (props) => {
+    const [filterValue, setfilterValue] = useState('');
+    const [isSort, setSort] = useState(true);
 
-    filterList = () => {
-        const {filterValue} = this.state;
-        return this.props.users.filter(({name: {first, last}})=>{
+    const filterList = () => {
+        return props.users.filter(({ name: { first, last } }) => {
             return first.toLowerCase().includes(filterValue) ||
-            last.toLowerCase().includes(filterValue)
+                last.toLowerCase().includes(filterValue)
         })
     }
 
-    userMap = (usersArray) => usersArray.map((userObj) =>
+    const userMap = (usersArray) => usersArray.map((userObj) =>
         <Card user={userObj} key={userObj.login.uuid} />)
-        
 
-    changeHandler = ({target: {name, value}}) => {
-        this.setState({
-            [name]: value
-        })
-        this.filterList();
+
+    const changeHandler = ({ target: { value } }) => {
+        setfilterValue(value)
+        filterList();
     }
 
-
-    render() {
-        const {filterValue} = this.state;
-        return (
-            <>
-                <input 
+    return (
+        <>
+            <input
                 type='text'
                 value={filterValue}
                 name='filterValue'
-                onChange={this.changeHandler} 
-                />
-                <div className="class-container">
-                    {this.userMap(this.filterList())}
-                </div>
-            </>
-        );
-    }
+                onChange={changeHandler}
+            />
+            <div className="class-container">
+                {userMap(filterList())}
+            </div>
+        </>
+    )
 }
+
+
+// class UsersList extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             isSort: true,
+//             filterValue: '',
+//         }
+//     }
+
+// filterList = () => {
+//     const {filterValue} = this.state;
+//     return this.props.users.filter(({name: {first, last}})=>{
+//         return first.toLowerCase().includes(filterValue) ||
+//         last.toLowerCase().includes(filterValue)
+//     })
+// }
+
+// userMap = (usersArray) => usersArray.map((userObj) =>
+//     <Card user={userObj} key={userObj.login.uuid} />)
+
+
+// changeHandler = ({target: {name, value}}) => {
+//     this.setState({
+//         [name]: value
+//     })
+//     this.filterList();
+// }
+
+
+//     render() {
+//         const {filterValue} = this.state;
+//         return (
+// <>
+//     <input 
+//     type='text'
+//     value={filterValue}
+//     name='filterValue'
+//     onChange={this.changeHandler} 
+//     />
+//     <div className="class-container">
+//         {this.userMap(this.filterList())}
+//     </div>
+// </>
+//         );
+//     }
+// }
 
 export default UsersList;
