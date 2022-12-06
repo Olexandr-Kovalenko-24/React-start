@@ -39,14 +39,17 @@ const LoginSquadhelp = () => {
                                 <ErrorMessage name="password" component='span' className={styles.error} />
                             </div>
                             <div className={styles['check']}>
-                                <Field type="checkbox" name="allow" className={styles.checkbox} />
-                                <span className={styles['small-text']}>Remember Me</span>
+                                <div>
+                                    <Field type="checkbox" name="allow" className={styles.checkbox} />
+                                    <span className={styles['small-text']}>Remember Me</span>
+                                </div>
+                                <span className={styles['small-text']}>Forgot Password</span>
                             </div>
                             <div className={styles['flex-row']}>
                                 <ErrorMessage name="allow" component='span' className={styles.error} />
                             </div>
-                            <button className={styles['blue']} type='submit' >Login</button>
-                            <button className={styles['red']}>Sign up with Google</button>
+                            <button className={styles['blue']} type='submit' >LOGIN</button>
+                            <button className={styles['red']}><span className={styles['bold-text']}>G</span>Sign up with Google</button>
                         </Form>
                     </div>
                 )

@@ -79,8 +79,8 @@ const SignUpSquadhelp = () => {
                                 <ErrorMessage name="allow" component='span' className={styles.error} />
                             </div>
                             <button className={styles['blue']} type='submit' >Create account</button>
-                            <h5>By clicking this button, you agree to our Terms of service</h5>
-                            <button className={styles['red']} >Sign up with Google</button> 
+                            <h5>By clicking this button, you agree to our <span className={styles.underline}>Terms of service</span></h5>
+                            <button className={styles['red']}><span className={styles['bold-text']}>G</span>Sign up with Google</button> 
                         </Form>
                     </div>
                 )
