@@ -16,18 +16,23 @@ function Tree(props) {
         [styles.lightTheme]: theme === THEMES.LIGHT
     });
 
+    const ChangeTheme = useCallback(()=>{
+        setTheme(theme=>theme===THEMES.DARK?THEMES.LIGHT:THEMES.DARK)
+    },[])
+
     const memoizedFunc = useCallback(()=>{
         console.log(props.value)
     }, [props.value]);
 
     useEffect(() => {
         console.log('function changed')
-    }, [memoizedFunc]);
+    }, [ChangeTheme]);
 
     return (
         <div className={cn}>
             <p>{user.firstName}</p>
             <p>Tree</p>
+            <button onClick={ChangeTheme}>Change theme</button>
             {memoizedFunc()}
             <Parent />
         </div>

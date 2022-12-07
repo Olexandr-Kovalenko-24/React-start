@@ -21,14 +21,14 @@ function App(props) {
         setUser({})
     }
 
-    const changeTheme = (theme) => {
-        setTheme(theme)
-    }
+    // const changeTheme = (theme) => {
+    //     setTheme(theme)
+    // }
 
     return (
-        <ThemeContext.Provider value={[theme, changeTheme]}>
+        <ThemeContext.Provider value={[theme, setTheme]}>
             <UserContext.Provider value={[user, logOutCallback]}>
-                <Header />
+                {/* <Header /> */}
                 <Tree value='suppper' />
             </UserContext.Provider>
         </ThemeContext.Provider>
