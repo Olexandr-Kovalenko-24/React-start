@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useCallback, useContext, useEffect} from "react";
 import Parent from "./Parent";
 import styles from './Tree.module.css';
 import cx from 'classnames';
@@ -16,10 +16,19 @@ function Tree(props) {
         [styles.lightTheme]: theme === THEMES.LIGHT
     });
 
+    const memoizedFunc = useCallback(()=>{
+        console.log(props.value)
+    }, [props.value]);
+
+    useEffect(() => {
+        console.log('function changed')
+    }, [memoizedFunc]);
+
     return (
         <div className={cn}>
             <p>{user.firstName}</p>
             <p>Tree</p>
+            {memoizedFunc()}
             <Parent />
         </div>
     )

@@ -29,7 +29,7 @@ function App(props) {
         <ThemeContext.Provider value={[theme, changeTheme]}>
             <UserContext.Provider value={[user, logOutCallback]}>
                 <Header />
-                <Tree />
+                <Tree value='suppper' />
             </UserContext.Provider>
         </ThemeContext.Provider>
     )
