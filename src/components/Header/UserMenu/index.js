@@ -1,8 +1,8 @@
-import React from 'react';
-import { withUser } from '../../../HOCs/withUser';
+import React, {useContext} from "react";
+import UserContext from '../../../contexts/UserContext';
 
 const UserMenu = (props) => {
-    const {user, setUser} = props;
+    const [user, setUser] = useContext(UserContext);
 
     if (!Object.keys(user).length) {
         return null;
@@ -18,6 +18,5 @@ const UserMenu = (props) => {
     )
 }
 
-const UserMenuWrapped = withUser(UserMenu);
 
-export default UserMenuWrapped;
+export default UserMenu;
