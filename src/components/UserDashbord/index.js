@@ -43,7 +43,7 @@ const UserDashboard = () => {
             <span>{page}</span>
             <button onClick={next}>{'>'}</button>
             {error && <div>Oops! Sorry</div>}
-            {users && <UsersList users={users} />}
+            {users && <UsersList users={users} setusers={setusers} />}
             {isFetching && <Spiner />}
         </section>
     )

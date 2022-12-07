@@ -16,6 +16,12 @@ const UsersList = (props) => {
     const userMap = (usersArray) => usersArray.map((userObj) =>
         <Card user={userObj} key={userObj.login.uuid} />)
 
+    const sortUsers = () => {
+        const newUsers = [...props.users];
+        newUsers.sort((a, b) => (a.name.first > b.name.first && isSort) ? 1 : -1);
+        props.setusers(newUsers);
+        setSort(!isSort);
+    }
 
     const changeHandler = ({ target: { value } }) => {
         setfilterValue(value)
@@ -30,6 +36,7 @@ const UsersList = (props) => {
                 name='filterValue'
                 onChange={changeHandler}
             />
+            <button onClick={sortUsers}>Sort</button>
             <div className="class-container">
                 {userMap(filterList())}
             </div>
