@@ -28,12 +28,12 @@ const UserDashboard = () => {
     }
 
     const next = () => {
-        setPage((page) => page + 1)
+        setPage(page + 1)
     }
 
     const prev = () => {
         if (page > 1) {
-            setPage((page) => page - 1)
+            setPage(page - 1)
         }
     }
 

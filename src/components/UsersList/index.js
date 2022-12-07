@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Card from "../UserCard"
+import Card from "../UserCard";
+import '../UserCard/style.css'
 
 const UsersList = (props) => {
     const [filterValue, setfilterValue] = useState('');
