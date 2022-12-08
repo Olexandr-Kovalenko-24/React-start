@@ -1,5 +1,5 @@
 import React from "react";
-import useData from "../hooks/useData";
+import useData from "../../hooks/useData";
 import { getUsers } from "../../api/user";
 
 function UserLoader() {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useWindowSizer from '../../hooks/windowSizer';
+import useWindowSizer from '../../hooks/useWindowSizer';
 
 function WindowSizer () {
 const {sizes} = useWindowSizer();
