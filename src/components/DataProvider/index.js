@@ -1,37 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-class DataProvider extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [],
-            isFetching: true,
-            error: null
-        }
-    }
+const DataProvider = (props) => {
+    const [data, setData] = useState([]);
+    const [isFetching, setisFetching] = useState(true);
+    const [error, setError] = useState(null);
 
-    componentDidMount() {
-        this.props.loadData()
+    useEffect(()=>{
+        props.loadData()
         .then((data) => {
-            this.setState({
-                data
-            })
+            setData(data)
         })
         .catch((error)=>{
-            this.setState({
-                error
-            })
+            setError(error)
         })
         .finally(()=>{
-            this.setState({
-                isFetching: false
-            })
+            setisFetching(false)
         })
-    }
-    
-    render() {
-        return this.props.children(this.state);
-    }
+    })
+
+    return props.children(data);
 }
 
+
 export default DataProvider;
+
+// class DataProvider extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             data: [],
+//             isFetching: true,
+//             error: null
+//         }
+//     }
+
+//     componentDidMount() {
+//         this.props.loadData()
+//         .then((data) => {
+//             this.setState({
+//                 data
+//             })
+//         })
+//         .catch((error)=>{
+//             this.setState({
+//                 error
+//             })
+//         })
+//         .finally(()=>{
+//             this.setState({
+//                 isFetching: false
+//             })
+//         })
+//     }
+    
+//     render() {
+//         return this.props.children(this.state);
+//     }
+// }

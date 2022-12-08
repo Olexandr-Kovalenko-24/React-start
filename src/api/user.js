@@ -1,0 +1,1 @@
+export const getUsers = () => fetch('./user.json').then(res => res.json())

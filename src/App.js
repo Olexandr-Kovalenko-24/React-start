@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import UserDashboard from './components/UserDashbord';
+// import UserDashboard from './components/UserDashbord';
+// import DataProvider from "./components/DataProvider";
+import UserLoader from "./components/UserLoader";
+import {getUsers} from './api/user'
 
 
 function App(props) {
 
     return (
-        <UserDashboard />
+        <UserLoader />
     )
 }
 
